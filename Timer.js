@@ -42,11 +42,8 @@ class Timer {
         this.onComplete();
       }
     } else {
-      const timeRemaining = this.timeRemaining;
-      this.timeRemaining = timeRemaining - 0.02;
-      // with the native js getter and setter, these two lines can be
-      // condensed like so:
-      // this.timeRemaining = this.timeRemaining - 1;
+      // implicit getting and setting enabled by the native js getter/setter
+      this.timeRemaining = this.timeRemaining - 0.02;
       if (this.onTick) {
         this.onTick(this.timeRemaining);
       }
