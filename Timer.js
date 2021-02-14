@@ -19,7 +19,7 @@ class Timer {
   }
 
   set timeRemaining(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2);
   }
 
   // Timer Methods
@@ -28,7 +28,7 @@ class Timer {
       this.onStart();
     }
     this.tick();
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 50);
   };
 
   pause = () => {
@@ -43,7 +43,7 @@ class Timer {
       }
     } else {
       const timeRemaining = this.timeRemaining;
-      this.timeRemaining = timeRemaining - 1;
+      this.timeRemaining = timeRemaining - 0.05;
       // with the native js getter and setter, these two lines can be
       // condensed like so:
       // this.timeRemaining = this.timeRemaining - 1;
