@@ -25,10 +25,10 @@ class Timer {
   // Timer Methods
   start = () => {
     if (this.onStart) {
-      this.onStart();
+      this.onStart(this.timeRemaining);
     }
     this.tick();
-    this.interval = setInterval(this.tick, 50);
+    this.interval = setInterval(this.tick, 20);
   };
 
   pause = () => {
@@ -43,12 +43,12 @@ class Timer {
       }
     } else {
       const timeRemaining = this.timeRemaining;
-      this.timeRemaining = timeRemaining - 0.05;
+      this.timeRemaining = timeRemaining - 0.02;
       // with the native js getter and setter, these two lines can be
       // condensed like so:
       // this.timeRemaining = this.timeRemaining - 1;
       if (this.onTick) {
-        this.onTick();
+        this.onTick(this.timeRemaining);
       }
     }
   };
