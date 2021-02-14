@@ -1,7 +1,7 @@
 const durationInput = document.querySelector("#duration");
 const startButton = document.querySelector("#start");
 const pauseButton = document.querySelector("#pause");
-const circle = document.querySelector("circle");
+const circle = document.querySelector("#timer-fg");
 
 const perimeter = circle.getAttribute("r") * 2 * Math.PI;
 circle.setAttribute("stroke-dasharray", perimeter);
@@ -20,6 +20,6 @@ const timer = new Timer(durationInput, startButton, pauseButton, {
     );
   },
   onComplete() {
-    console.log("timer complete");
+    circle.setAttribute("fill", "silver");
   },
 });
